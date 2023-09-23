@@ -1,14 +1,13 @@
 package com.example.e_commerce
 
-import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.e_commerce.data.repository.ProductsRepository
-import com.example.e_commerce.data.source.ProductsApiService
-import com.example.e_commerce.data.source.RetroFitHelper
+import com.example.e_commerce.data.source.api.ProductsApiService
+import com.example.e_commerce.data.source.api.RetroFitHelper
 import com.example.e_commerce.databinding.ActivityMainBinding
 import com.example.e_commerce.ui.viewmodels.MainViewModel
 import com.example.e_commerce.ui.viewmodelsFactory.MainViewModelFactory

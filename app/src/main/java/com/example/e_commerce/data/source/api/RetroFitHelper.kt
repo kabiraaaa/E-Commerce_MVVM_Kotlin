@@ -1,4 +1,4 @@
-package com.example.e_commerce.data.source
+package com.example.e_commerce.data.source.api
 
 import com.example.e_commerce.domain.utils.Constants
 import retrofit2.Retrofit

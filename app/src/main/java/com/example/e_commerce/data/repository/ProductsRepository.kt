@@ -2,7 +2,7 @@ package com.example.e_commerce.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.e_commerce.data.source.ProductsApiService
+import com.example.e_commerce.data.source.api.ProductsApiService
 import com.example.e_commerce.domain.models.products
 
 class ProductsRepository(private val productsApiService: ProductsApiService) {
