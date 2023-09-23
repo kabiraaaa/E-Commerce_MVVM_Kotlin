@@ -3,11 +3,11 @@ package com.example.e_commerce
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.e_commerce.data.repository.ProductsRepository
 import com.example.e_commerce.data.source.api.ProductsApiService
 import com.example.e_commerce.data.source.api.RetroFitHelper
+import com.example.e_commerce.data.source.room_db.products.ProductsDatabase
 import com.example.e_commerce.databinding.ActivityMainBinding
 import com.example.e_commerce.ui.viewmodels.MainViewModel
 import com.example.e_commerce.ui.viewmodelsFactory.MainViewModelFactory
@@ -22,12 +22,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val productService = RetroFitHelper.getInstance().create(ProductsApiService::class.java)
-        val repository = ProductsRepository(productService)
+        val database = ProductsDatabase.getProductDatabase(this)
+        val repository = ProductsRepository(productService,database)
 
         mainViewModel = ViewModelProvider(this,MainViewModelFactory(repository))[MainViewModel::class.java]
 
-        mainViewModel.products.observe(this, Observer {
-            Log.d("Helloo",it.toString())
-        })
+        mainViewModel.products.observe(this) {
+            Log.d("Helloo", it.toString())
+        }
     }
 }
