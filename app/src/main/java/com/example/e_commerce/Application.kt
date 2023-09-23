@@ -7,6 +7,7 @@ import com.microsoft.clarity.ClarityConfig
 
 open class Application : Application() {
 
+    private val TAG = "Application"
     override fun onCreate() {
         super.onCreate()
         val config = ClarityConfig(Constants.CLARITY_PROJECT_ID)
