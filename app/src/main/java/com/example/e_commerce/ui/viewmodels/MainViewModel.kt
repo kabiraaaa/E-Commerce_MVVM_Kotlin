@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.e_commerce.data.repository.ProductsRepository
-import com.example.e_commerce.domain.models.products
+import com.example.e_commerce.domain.models.productsItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -15,6 +15,6 @@ class MainViewModel(private val repository: ProductsRepository) :ViewModel() {
         }
     }
 
-    val products : LiveData<products>
+    val products : LiveData<List<productsItem>>
         get() = repository.products
 }

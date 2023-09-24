@@ -21,14 +21,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val productService = RetroFitHelper.getInstance().create(ProductsApiService::class.java)
-        val database = ProductsDatabase.getProductDatabase(this)
-        val repository = ProductsRepository(productService,database)
+        val repository = (application as Application).productsRepository
 
         mainViewModel = ViewModelProvider(this,MainViewModelFactory(repository))[MainViewModel::class.java]
 
         mainViewModel.products.observe(this) {
-            Log.d("Helloo", it.toString())
+            Log.d("Helloo", it.size.toString())
         }
     }
 }
