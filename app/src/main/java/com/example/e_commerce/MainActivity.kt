@@ -13,6 +13,9 @@ import com.example.e_commerce.ui.viewmodels.MainViewModel
 import com.example.e_commerce.ui.viewmodelsFactory.MainViewModelFactory
 
 class MainActivity : AppCompatActivity() {
+
+    private val TAG = "MainActivity"
+
     private lateinit var binding: ActivityMainBinding
     lateinit var mainViewModel: MainViewModel
 
@@ -26,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         mainViewModel = ViewModelProvider(this,MainViewModelFactory(repository))[MainViewModel::class.java]
 
         mainViewModel.products.observe(this) {
-            Log.d("Helloo", it.size.toString())
+            Log.d(TAG, "Products- $it")
         }
     }
 }

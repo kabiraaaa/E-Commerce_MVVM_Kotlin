@@ -25,13 +25,14 @@ class ProductsRepository(
     suspend fun getProducts() {
 
         if (NetworkUtils.isNetworkAvailable(applicationContext)) {
+            Log.d(TAG, "Internet Available- ${NetworkUtils.isNetworkAvailable(applicationContext)}")
             val result = productsApiService.getProducts()
             if (result.body() != null) {
                 productsDatabase.productsDao().addProducts(result.body()!!)
                 productsLiveData.postValue(result.body())
             }
         } else {
-            Log.d(TAG, NetworkUtils.isNetworkAvailable(applicationContext).toString())
+            Log.d(TAG, "Internet Available- ${NetworkUtils.isNetworkAvailable(applicationContext)}")
             val productsList = productsDatabase.productsDao().getProducts()
             productsLiveData.postValue(productsList)
         }
