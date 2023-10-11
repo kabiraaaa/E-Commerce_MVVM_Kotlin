@@ -77,8 +77,15 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.15.1")
     kapt("com.github.bumptech.glide:compiler:4.15.1")
 
+    // Lottie
+    implementation("com.airbnb.android:lottie:3.7.1")
+
     //FireBase
     implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     implementation("com.google.firebase:firebase-crashlytics-ktx")
     implementation("com.google.firebase:firebase-analytics-ktx")
+
+    //size dp/sp
+    implementation ("com.intuit.sdp:sdp-android:1.1.0")
+    implementation ("com.intuit.ssp:ssp-android:1.0.6")
 }
