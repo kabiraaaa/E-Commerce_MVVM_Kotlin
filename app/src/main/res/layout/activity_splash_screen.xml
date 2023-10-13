@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/sample_bg"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:background="@color/app_background"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Products for every day"
+            android:textColor="@color/app_secondary_text_color"
+            android:textSize="@dimen/_15sdp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find The Best \nProducts For You"
+            android:textColor="@color/app_primary_text_color"
+            android:textSize="@dimen/_28sdp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_marginVertical="15dp"
+            android:minLines="2"/>
+
+        <Button
+            android:id="@+id/btnGoToStore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go To The Store"
+            android:layout_marginHorizontal="@dimen/_30sdp"
+            android:paddingVertical="@dimen/_13sdp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</FrameLayout>
