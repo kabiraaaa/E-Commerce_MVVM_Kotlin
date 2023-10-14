@@ -2,6 +2,7 @@ package com.example.e_commerce.data.repository
 
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.e_commerce.data.source.api.ProductsApiService
@@ -26,10 +27,14 @@ class ProductsRepository(
 
         if (NetworkUtils.isNetworkAvailable(applicationContext)) {
             Log.d(TAG, "Internet Available- ${NetworkUtils.isNetworkAvailable(applicationContext)}")
-            val result = productsApiService.getProducts()
-            if (result.body() != null) {
-                productsDatabase.productsDao().addProducts(result.body()!!)
-                productsLiveData.postValue(result.body())
+            try {
+                val result = productsApiService.getProducts()
+                if (result.body() != null) {
+                    productsDatabase.productsDao().addProducts(result.body()!!)
+                    productsLiveData.postValue(result.body())
+                }
+            } catch (E: Exception) {
+                Toast.makeText(applicationContext, "Something Went Wrong!!", Toast.LENGTH_SHORT).show()
             }
         } else {
             Log.d(TAG, "Internet Available- ${NetworkUtils.isNetworkAvailable(applicationContext)}")
